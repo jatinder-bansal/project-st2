@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body{
+            background-image: url("spaceb.jpg");
+            background-color: transparent;
+            background-position:center;
+            background-size: cover;
+            background-repeat: repeat;
+            font-family: cursive;
+        }
+
+
+
+
+
+
+
+        #inputbox{
+            text-align: center;
+            margin-top: 1%;
+            /* background-color: aqua; */
+            padding: 3%;
+        }
+        
+        #inputbox > h1{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            margin: 1%;
+        }
+
+        #inputbox > input{
+            border: 2px solid orange;
+            border-radius: 50px; 
+            height: 6vh;
+            width: 20vw;
+            font-size: large;
+            text-align: center;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        .planets{
+            height: 150px;
+            /* margin: 0px; */
+            width: 150px;
+            
+            background-color: transparent;
+            background-size: cover;
+
+            border: 0;
+
+        }
+
+        .planetitem{
+            display: inline-block;
+            background-color: transparent;
+
+            border: 0;
+        }
+
+
+        .mercury{
+            background-image: url("mercurybg.png");
+            width: 150px;
+            margin-top: 50%;
+        }
+
+        .venus{
+            background-image: url("venusbg.png");
+            width: 200px;
+            margin-top: 20%;
+
+        }
+
+        .earth{
+            background-image: url("earthbg.png");
+            height: 150px;
+            width: 170px;
+            margin-top: 10%;
+
+        }
+
+        .mars{
+            background-image: url("marsbg.png");
+        }
+
+        .jupyter{
+            background-image: url("jupyterbg.png");
+        }
+
+        .saturn{
+            background-image: url("saturnbg.png");
+            height: 180px;
+            width: 200px;
+        }
+
+        .uranus{
+            background-image: url("uranusbg.png");
+            margin-top: 30%;
+
+        }
+
+        .neptune{
+            background-image: url("neptunebg.png");
+            margin-top: 50%;
+
+        }
+
+
+
+        #planetbox{
+            display: flex;
+            margin-top: 1%;
+            justify-content: center;
+
+            border: 0;
+
+        }
+
+
+
+
+
+
+        .labels{
+            color: greenyellow;
+            font-size: larger;
+            font-weight: bolder;
+            
+            display: inline-block;
+            width: 13%;
+            text-align: center;
+        }
+
+        #labelsbox{
+            margin-top: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        #outputbox{
+            text-align: center;
+            margin-top: 3%;
+        }
+
+        #outputbox > h1{
+            color: goldenrod;
+        }
+
+        #outputbox > div{
+            color: cornflowerblue;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="inputbox"> 
+        <h1> Enter Weight on Earth </h1>
+        <input id="woe" type="number">
+    </div>
+
+
+    <div id="planetbox">
+     
+    <div class="planetitem"> 
+        <button onclick="weight(0.38,'Mercury')" class="mercury planets"> </button>
+    </div> 
+
+    <div class="planetitem"> 
+        <button onclick="weight(0.91,'Venus')" class="venus planets"></button>
+    </div> 
+
+    <div class="planetitem"> 
+        <button onclick="weight(1,'Earth')" class="earth planets"></button>
+    </div>
+     
+    <div class="planetitem"> 
+        <button onclick="weight(0.38,'Mars')" class="mars planets"></button>
+    </div>
+
+    <div class="planetitem"> 
+        <button onclick="weight(2.34, 'Jupyter')" class="jupyter planets"></button>
+    </div> 
+
+    <div class="planetitem"> 
+        <button onclick="weight(1.06,'Saturn')" class="saturn planets"></button>
+    </div> 
+
+    <div class="planetitem"> 
+        <button onclick="weight(0.92,'Uranus')" class="uranus planets"> </button>
+    </div> 
+    
+
+    <div class="planetitem"> 
+        <button onclick="weight(1.19, 'Neptune')" class="neptune planets"> </button>
+    </div> 
+    
+
+    </div>
+
+    <div id="labelsbox">
+        <div class="labels" onclick="weight(0.38,'Mercury')" > Mercury </div> 
+        <div class="labels" onclick="weight(0.91,'Venus')"> Venus </div> 
+        <div class="labels" onclick="weight(1,'Earth')" class> Earth </div> 
+        <div class="labels" onclick="weight(0.38,'Mars')"> Mars </div> 
+        <div class="labels" onclick="weight(2.34, 'Jupyter')"> Jupyter </div> 
+        <div class="labels" onclick="weight(1.06,'Saturn')" > Saturn </div> 
+        <div class="labels" onclick="weight(0.92,'Uranus')"> Uranus </div> 
+        <div class="labels" onclick="weight(1.19, 'Neptune')"> Neptune </div> 
+    </div>
+
+
+    <div id="outputbox">
+        <h1> Your Weight on <span id="planetname"> Planet </span> :- </h1> 
+        <div id="output"> </div> 
+    </div> 
+
+
+    <script>
+       
+
+
+    function weight(diff,name){
+        let earth_weight = document.getElementById("woe").value;
+        
+        console.log(earth_weight*diff);
+
+        document.getElementById("planetname").innerHTML= name;
+
+        document.getElementById("output").innerHTML= earth_weight*diff + " kg";
+        // console.log("first")
+    }
+
+       
+
+    </script>
+
+</body>
+</html>
